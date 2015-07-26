@@ -13,6 +13,7 @@
 #include "ui_MainWindow.h"
 
 class QApplication;
+class OpenGLWidget;
 
 class MainWindow: public QWidget {
 Q_OBJECT
@@ -23,6 +24,7 @@ public:
 private:
     QApplication* _app = nullptr;
     std::unique_ptr<Ui_MainWindow> _ui;
+    std::unique_ptr<OpenGLWidget> _glWidget;
 };
 
 #endif /* WOODENCOMPASS_MAINWINDOW_H_ */
