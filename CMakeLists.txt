@@ -8,6 +8,7 @@ find_package(Qt5Widgets REQUIRED)
 find_package(Qt5Core    REQUIRED)
 find_package(Qt5OpenGL  REQUIRED)
 find_package(OpenGL     REQUIRED)
+find_package(Gettext    REQUIRED)
 
 include_directories(
     ${Qt5Widgets_INCLUDE_DIRS}
