@@ -5,17 +5,15 @@
 #include <QtWidgets/QMessageBox>
 #include <QtWidgets/QPushButton>
 
+#include "MainWindow.h"
+
 using namespace std;
 
 int main(int argc, char **argv) {
     QApplication app { argc, argv };
     try {
-        cout << "Wooden Compass" << endl;
-
-        QPushButton button { "Test button" };
-        QObject::connect(&button, &QPushButton::clicked, &app, &QApplication::quit);
-        button.show();
-
+        std::unique_ptr<MainWindow> mainWindow(new MainWindow(&app));
+        mainWindow->show();
         return app.exec();
     } catch (exception const& e) {
         QMessageBox::critical(nullptr, "Error", e.what());
