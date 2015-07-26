@@ -1,0 +1,10 @@
+<RCC>
+  <qresource prefix="main">
+    <file>nuclear-wood.png</file>
+    <file>playwood.png</file>
+    <file>woodbackground.png</file>
+    <file>woodbutton.png</file>
+    <file>wood-play.png</file>
+    <file>compass.png</file>
+  </qresource>
+</RCC>
