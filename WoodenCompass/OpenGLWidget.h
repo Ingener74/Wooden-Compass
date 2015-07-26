@@ -13,6 +13,9 @@
 class OpenGLWidget: public QGLWidget {
 Q_OBJECT
 public:
+    static const int OPENGL_WIDTH = 800;
+    static const int OPENGL_HEIGHT = 600;
+
     OpenGLWidget(QWidget* parent = nullptr);
     virtual ~OpenGLWidget();
 

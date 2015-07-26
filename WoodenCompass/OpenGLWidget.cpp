@@ -9,12 +9,15 @@
 
 OpenGLWidget::OpenGLWidget(QWidget* parent) :
         QGLWidget(parent) {
+    setMinimumWidth(OPENGL_WIDTH);
+    setMinimumHeight(OPENGL_HEIGHT);
 }
 
 OpenGLWidget::~OpenGLWidget() {
 }
 
 void OpenGLWidget::initializeGL() {
+    resize(OPENGL_WIDTH, OPENGL_HEIGHT);
 }
 
 void OpenGLWidget::resizeGL(int w, int h) {
