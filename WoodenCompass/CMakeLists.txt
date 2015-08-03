@@ -16,7 +16,7 @@ add_executable(WoodenCompass ${WOODEN_COMPASS_RESOURCES} ${WOODEN_COMPASS_UI}
     MainWindow.cpp
     OpenGLWidget.cpp
     
-    Classes/Application-linux.cpp
+    #Classes/Application-linux.cpp
 )
 target_link_libraries(WoodenCompass 
     Qt5::Widgets 
