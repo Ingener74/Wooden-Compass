@@ -54,10 +54,20 @@ TEST(MVC, removeSink) {
     EXPECT_EQ(ds.sinksCount(), 0);
 }
 
-class MockDataSink: public DataSink{
+class MockDataSink: public DataSink {
 public:
     MOCK_METHOD0(update, void(void));
 };
 
-TEST(MVC, update){
+TEST(MVC, update) {
+    DataSource ds;
+    MockDataSink s1;
+    MockDataSink s2;
+    ds.addSink(&s1);
+    ds.addSink(&s2);
+
+    EXPECT_CALL(s1, update()).Times(1);
+    EXPECT_CALL(s2, update()).Times(1);
+    ds.notifyAll();
 }
+
