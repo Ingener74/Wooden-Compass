@@ -8,9 +8,10 @@
 #ifndef WOODENCOMPASS_OPENGLWIDGET_H_
 #define WOODENCOMPASS_OPENGLWIDGET_H_
 
+#include <cocos2d.h>
 #include <QtOpenGL/qgl.h>
 
-class OpenGLWidget: public QGLWidget {
+class OpenGLWidget: public QGLWidget, public cocos2d::GLView {
 Q_OBJECT
 public:
     static const int OPENGL_WIDTH = 800;
@@ -18,6 +19,11 @@ public:
 
     OpenGLWidget(QWidget* parent = nullptr);
     virtual ~OpenGLWidget();
+
+    virtual void end();
+    virtual bool isOpenGLReady();
+    virtual void swapBuffers();
+    virtual void setIMEKeyboardState(bool open);
 
 protected:
     virtual void initializeGL();

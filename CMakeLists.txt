@@ -17,7 +17,9 @@ include_directories(
 add_subdirectory(mvc)
 
 find_package(OpenGL     REQUIRED)
+find_package(GLEW       REQUIRED)
 find_package(Gettext    REQUIRED)
+find_package(Threads    REQUIRED)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
@@ -29,7 +31,12 @@ include_directories(
     ${Qt5Widgets_INCLUDE_DIRS}
     ${Qt5Core_INCLUDE_DIRS}
     ${Qt5OpenGL_INCLUDE_DIRS}
+    
     ${OPENGL_INCLUDE_DIR}
+    ${GLEW_INCLUDE_DIRS}
+    ${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR}
+    ${gmock_SOURCE_DIR}/include ${gmock_SOURCE_DIR}
+    ${X11_INCLUDE_DIR}
 )
 
 add_subdirectory(WoodenCompass)

@@ -21,6 +21,8 @@ public:
     MainWindow(QApplication*, QWidget* parent = nullptr, Qt::WindowFlags = 0);
     virtual ~MainWindow();
 
+    OpenGLWidget* getGlWidget();
+
 private:
     QApplication* _app = nullptr;
     std::unique_ptr<Ui_MainWindow> _ui;

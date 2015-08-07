@@ -8,7 +8,7 @@
 #include "OpenGLWidget.h"
 
 OpenGLWidget::OpenGLWidget(QWidget* parent) :
-        QGLWidget(parent) {
+    QGLWidget(parent) {
     setMinimumWidth(OPENGL_WIDTH);
     setMinimumHeight(OPENGL_HEIGHT);
 }
@@ -27,4 +27,16 @@ void OpenGLWidget::resizeGL(int w, int h) {
 void OpenGLWidget::paintGL() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glClearColor(.1f, .3f, .1f, 1.f);
+}
+
+void OpenGLWidget::end() {
+}
+
+bool OpenGLWidget::isOpenGLReady() {
+}
+
+void OpenGLWidget::swapBuffers() {
+}
+
+void OpenGLWidget::setIMEKeyboardState(bool open) {
 }

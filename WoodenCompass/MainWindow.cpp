@@ -13,7 +13,7 @@
 #include "MainWindow.h"
 
 MainWindow::MainWindow(QApplication* app, QWidget* parent, Qt::WindowFlags flags) :
-        QWidget(parent, flags), _app(app), _ui(new Ui_MainWindow) {
+    QWidget(parent, flags), _app(app), _ui(new Ui_MainWindow) {
     _ui->setupUi(this);
 
     _glWidget = make_unique<OpenGLWidget>(this);
@@ -25,3 +25,6 @@ MainWindow::MainWindow(QApplication* app, QWidget* parent, Qt::WindowFlags flags
 MainWindow::~MainWindow() {
 }
 
+OpenGLWidget* MainWindow::getGlWidget() {
+    return _glWidget.get();
+}
