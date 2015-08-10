@@ -12,7 +12,9 @@ using namespace cocos2d;
 
 OpenGLWidget::OpenGLWidget(QWidget* parent) :
         QGLWidget(parent), GLView() {
-//    setFrameSize(100, 100);
+
+//    _timer = make_unique<QTimer>();
+//    connect(_timer.get())
 }
 
 OpenGLWidget::~OpenGLWidget() {

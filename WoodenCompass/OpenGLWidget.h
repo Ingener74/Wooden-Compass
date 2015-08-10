@@ -11,6 +11,8 @@
 #include <cocos2d.h>
 #include <QtOpenGL/QGLWidget>
 
+class QTimer;
+
 class OpenGLWidget: public QGLWidget, public cocos2d::GLView {
 Q_OBJECT
 public:
@@ -32,6 +34,8 @@ protected:
     virtual void initializeGL();
     virtual void resizeGL(int w, int h);
     virtual void paintGL();
+
+    std::unique_ptr<QTimer> _timer;
 };
 
 #endif /* WOODENCOMPASS_OPENGLWIDGET_H_ */
