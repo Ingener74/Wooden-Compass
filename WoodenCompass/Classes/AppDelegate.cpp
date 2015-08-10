@@ -17,6 +17,8 @@ AppDelegate::AppDelegate(int argc, char* argv[]) :
     QApplication(argc, argv) {
 
     _mainWindow = make_unique<MainWindow>(this);
+
+    QObject::connect(_mainWindow->getGlWidget(), &OpenGLWidget::ready, this, &AppDelegate::onReady);
 }
 
 int AppDelegate::exec() {
@@ -26,13 +28,23 @@ int AppDelegate::exec() {
 AppDelegate::~AppDelegate() {
 }
 
-//void AppDelegate::initGLContextAttrs() {
-//    GLContextAttrs glContextAttrs = { 8, 8, 8, 8, 24, 8 };
-//
-//    GLView::setGLContextAttrs(glContextAttrs);
-//}
-
 bool AppDelegate::applicationDidFinishLaunching() {
+    return true;
+}
+
+void AppDelegate::applicationDidEnterBackground() {
+    Director::getInstance()->stopAnimation();
+}
+
+void AppDelegate::applicationWillEnterForeground() {
+    Director::getInstance()->startAnimation();
+}
+
+MainWindow* AppDelegate::getMainWindow() {
+    return _mainWindow.get();
+}
+
+void AppDelegate::onReady() {
     auto director = Director::getInstance();
     auto glview = _mainWindow->getGlWidget();
 
@@ -82,18 +94,4 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
 // run
     director->runWithScene(scene);
-
-    return true;
-}
-
-void AppDelegate::applicationDidEnterBackground() {
-    Director::getInstance()->stopAnimation();
-}
-
-void AppDelegate::applicationWillEnterForeground() {
-    Director::getInstance()->startAnimation();
-}
-
-MainWindow* AppDelegate::getMainWindow() {
-    return _mainWindow.get();
 }

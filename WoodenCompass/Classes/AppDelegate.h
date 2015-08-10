@@ -8,6 +8,7 @@
 class MainWindow;
 
 class AppDelegate: public QApplication, public cocos2d::Application {
+    Q_OBJECT
 public:
     AppDelegate(int argc, char* argv[]);
     virtual ~AppDelegate();
@@ -19,6 +20,9 @@ public:
     virtual void applicationWillEnterForeground();
 
     MainWindow* getMainWindow();
+
+public slots:
+    void onReady();
 
 private:
     std::unique_ptr<MainWindow> _mainWindow;
