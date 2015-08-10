@@ -7,6 +7,9 @@
 
 #include "OpenGLWidget.h"
 
+using namespace std;
+using namespace cocos2d;
+
 OpenGLWidget::OpenGLWidget(QWidget* parent) :
     QGLWidget(parent) {
     setMinimumWidth(OPENGL_WIDTH);
@@ -17,16 +20,18 @@ OpenGLWidget::~OpenGLWidget() {
 }
 
 void OpenGLWidget::initializeGL() {
-    resize(OPENGL_WIDTH, OPENGL_HEIGHT);
+    QGLWidget::initializeGL();
+//    GLContextAttrs glContextAttrs = { 8, 8, 8, 8, 24, 8 };
+//    setGLContextAttrs(glContextAttrs);
 }
 
 void OpenGLWidget::resizeGL(int w, int h) {
-    glViewport(0, 0, w, h);
+    setFrameSize(w, h);
 }
 
 void OpenGLWidget::paintGL() {
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glClearColor(.1f, .3f, .1f, 1.f);
+    CCDirector::getInstance()->getInstance()->mainLoop();
+    pollEvents();
 }
 
 void OpenGLWidget::end() {
@@ -37,7 +42,7 @@ bool OpenGLWidget::isOpenGLReady() {
 }
 
 void OpenGLWidget::swapBuffers() {
-    GLView::swapBuffers();
+    QGLWidget::swapBuffers();
 }
 
 void OpenGLWidget::setIMEKeyboardState(bool open) {

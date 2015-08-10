@@ -5,6 +5,7 @@
  *      Author: pavel
  */
 
+#include <QtGui/QKeyEvent>
 #include <QtWidgets/QPushButton>
 
 #include "tools.h"
@@ -27,4 +28,10 @@ MainWindow::~MainWindow() {
 
 OpenGLWidget* MainWindow::getGlWidget() {
     return _glWidget.get();
+}
+
+void MainWindow::keyPressEvent(QKeyEvent* event) {
+    if (event->key() == Qt::Key_Escape) {
+        close();
+    }
 }

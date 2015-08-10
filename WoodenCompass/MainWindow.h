@@ -13,6 +13,7 @@
 #include "ui_MainWindow.h"
 
 class QApplication;
+class QKeyEvent;
 class OpenGLWidget;
 
 class MainWindow: public QWidget {
@@ -22,6 +23,8 @@ public:
     virtual ~MainWindow();
 
     OpenGLWidget* getGlWidget();
+
+    virtual void keyPressEvent(QKeyEvent *);
 
 private:
     QApplication* _app = nullptr;
