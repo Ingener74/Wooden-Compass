@@ -10,7 +10,7 @@ class MainWindow;
 class AppDelegate: public QApplication, public cocos2d::Application {
     Q_OBJECT
 public:
-    AppDelegate(int argc, char* argv[]);
+    AppDelegate(int& argc, char** argv);
     virtual ~AppDelegate();
 
     virtual int exec();
