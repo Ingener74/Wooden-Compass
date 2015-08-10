@@ -25,9 +25,6 @@ public:
     virtual void swapBuffers();
     virtual void setIMEKeyboardState(bool open);
 
-    virtual const cocos2d::Size& getFrameSize() const;
-    virtual void setFrameSize(float width, float height);
-
 signals:
     void ready();
 

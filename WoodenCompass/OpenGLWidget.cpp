@@ -12,6 +12,7 @@ using namespace cocos2d;
 
 OpenGLWidget::OpenGLWidget(QWidget* parent) :
     QGLWidget(parent), GLView() {
+    setFrameSize(100, 100);
 }
 
 OpenGLWidget::~OpenGLWidget() {
@@ -29,19 +30,7 @@ void OpenGLWidget::initializeGL() {
 }
 
 void OpenGLWidget::resizeGL(int w, int h) {
-//    QGLWidget::resize(w, h);
-
-
-
-    updateGL();
-}
-
-const Size& OpenGLWidget::getFrameSize() const {
-    return Size(width(), height());
-}
-
-void OpenGLWidget::setFrameSize(float width, float height) {
-    resize(width, height);
+    glViewport(0, 0, w, h);
 }
 
 void OpenGLWidget::paintGL() {
