@@ -33,9 +33,11 @@ void OpenGLWidget::end() {
 }
 
 bool OpenGLWidget::isOpenGLReady() {
+    return true;
 }
 
 void OpenGLWidget::swapBuffers() {
+    GLView::swapBuffers();
 }
 
 void OpenGLWidget::setIMEKeyboardState(bool open) {

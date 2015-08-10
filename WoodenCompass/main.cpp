@@ -12,6 +12,7 @@
 using namespace std;
 
 int main(int argc, char **argv) {
+
     AppDelegate app { argc, argv };
     try {
         app.getMainWindow()->show();
