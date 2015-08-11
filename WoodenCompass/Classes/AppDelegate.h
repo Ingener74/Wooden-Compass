@@ -21,7 +21,7 @@ public:
 
     MainWindow* getMainWindow();
 
-public slots:
+public Q_SLOTS:
     void onReady();
 
 private:

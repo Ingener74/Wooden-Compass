@@ -22,13 +22,20 @@ public:
     OpenGLWidget(QWidget* parent = nullptr);
     virtual ~OpenGLWidget();
 
-    virtual void end();
-    virtual bool isOpenGLReady();
+    virtual void end() {
+    }
+    virtual bool isOpenGLReady() {
+        return true;
+    }
     virtual void swapBuffers();
-    virtual void setIMEKeyboardState(bool open);
+    virtual void setIMEKeyboardState(bool open) {
+    }
 
-signals:
+Q_SIGNALS:
     void ready();
+
+private Q_SLOTS:
+    void onTimer();
 
 protected:
     virtual void initializeGL();

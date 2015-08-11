@@ -7,17 +7,27 @@
 
 #include "OpenGLWidget.h"
 
+#include <QtCore/QTimer>
+
+#include "tools.h"
+
 using namespace std;
 using namespace cocos2d;
 
 OpenGLWidget::OpenGLWidget(QWidget* parent) :
-        QGLWidget(parent), GLView() {
-
-//    _timer = make_unique<QTimer>();
-//    connect(_timer.get())
+        QGLWidget(parent), GLView(), _timer(new QTimer) {
+    connect(_timer.get(), &QTimer::timeout, this, &OpenGLWidget::onTimer);
 }
 
 OpenGLWidget::~OpenGLWidget() {
+}
+
+void OpenGLWidget::swapBuffers() {
+    QGLWidget::swapBuffers();
+}
+
+void OpenGLWidget::onTimer() {
+    update();
 }
 
 void OpenGLWidget::initializeGL() {
@@ -31,10 +41,11 @@ void OpenGLWidget::initializeGL() {
     setFrameSize(width(), height());
 
     emit ready();
+
+    _timer->start(1000.f / 60.f);
 }
 
 void OpenGLWidget::resizeGL(int w, int h) {
-//    glViewport(0, 0, w, h);
     setFrameSize(w, h);
     updateGL();
 }
@@ -42,18 +53,4 @@ void OpenGLWidget::resizeGL(int w, int h) {
 void OpenGLWidget::paintGL() {
     CCDirector::getInstance()->getInstance()->mainLoop();
     pollEvents();
-}
-
-void OpenGLWidget::end() {
-}
-
-bool OpenGLWidget::isOpenGLReady() {
-    return true;
-}
-
-void OpenGLWidget::swapBuffers() {
-    QGLWidget::swapBuffers();
-}
-
-void OpenGLWidget::setIMEKeyboardState(bool open) {
 }
